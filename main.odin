@@ -37,7 +37,7 @@ main :: proc() {
 	rl.SetShaderValue(shader, zoom_uniform, &zoom, .FLOAT)
 	rl.SetShaderValue(shader, julia_center_uniform, raw_data(julia_center[:]), .VEC2)
 
-	rl.SetTargetFPS(60)
+	rl.SetTargetFPS(120)
 	for !rl.WindowShouldClose() {
 		dt := rl.GetFrameTime()
 
