@@ -30,7 +30,7 @@ main :: proc() {
 	zoom_uniform := rl.GetShaderLocation(shader, "zoom")
 
 	center: [2]f32
-	julia_center: [2]f32
+	julia_center: [2]f32 = {-0.7870683, 0.0}
 	zoom: f32 = 1
 
 	rl.SetShaderValue(shader, center_uniform, raw_data(center[:]), .VEC2)
