@@ -12,6 +12,10 @@ out vec4 finalColor;
 
 int MAX_ITER = 1000;
 
+vec3 palette(in float t, in vec3 a, in vec3 b, in vec3 c, in vec3 d) {
+    return a + b * cos(6.283185 * (c * t + d));
+}
+
 float mandelbrot(vec2 c) {
     vec2 z = c;
     int iterations = 0;
@@ -34,7 +38,7 @@ void main() {
 
     float m = mandelbrot(updated);
 
-    vec3 color = mix(vec3(1.0, 0.0, 1.0), vec3(0.0, 0.0, 1.0), m) * float(m > 0.0f);
+    vec3 color = palette(m, vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), vec3(2.0, 1.0, 0.0), vec3(0.50, 0.20, 0.25)) * float(m > 0.0f);
 
     finalColor = vec4(color, 1.0);
 }
